@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     var kennyArray = [UIImageView]()
     
+    var highScore = 0
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
@@ -40,7 +42,17 @@ class ViewController: UIViewController {
         scoreLabel.text = "Score: \(score)"
         timeLabel.text = "Time: \(counter)"
         
+        let storedHighScore = UserDefaults.standard.object(forKey: "highScore")
         
+        if storedHighScore == nil {
+            highScore = 0
+            highScoreLabel.text = "High score: \(highScore)"
+        }
+        
+        if let newScore = storedHighScore as? Int {
+            highScore = newScore
+            highScoreLabel.text = "High score: \(highScore)"
+        }
         
         kenny1.isUserInteractionEnabled = true
         let recognizer1 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
@@ -106,6 +118,12 @@ class ViewController: UIViewController {
         if counter == 0 {
             timer.invalidate()
             hideTimer.invalidate()
+            
+            if self.score > self.highScore {
+                self.highScore = self.score
+                highScoreLabel.text = "High score: \(highScore)"
+                UserDefaults.standard.set(highScoreLabel.text, forKey: "highScore")
+            }
             
             for kenny in kennyArray {
                 kenny.isHidden = true
