@@ -35,6 +35,38 @@ class ViewController: UIViewController {
         kenny1.isUserInteractionEnabled = true
         let recognizer1 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
         kenny1.addGestureRecognizer(recognizer1)
+        
+        kenny2.isUserInteractionEnabled = true
+        let recognizer2 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny2.addGestureRecognizer(recognizer2)
+        
+        kenny3.isUserInteractionEnabled = true
+        let recognizer3 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny3.addGestureRecognizer(recognizer3)
+        
+        kenny4.isUserInteractionEnabled = true
+        let recognizer4 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny4.addGestureRecognizer(recognizer4)
+        
+        kenny5.isUserInteractionEnabled = true
+        let recognizer5 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny5.addGestureRecognizer(recognizer5)
+        
+        kenny6.isUserInteractionEnabled = true
+        let recognizer6 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny6.addGestureRecognizer(recognizer6)
+        
+        kenny7.isUserInteractionEnabled = true
+        let recognizer7 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny7.addGestureRecognizer(recognizer7)
+        
+        kenny8.isUserInteractionEnabled = true
+        let recognizer8 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny8.addGestureRecognizer(recognizer8)
+        
+        kenny9.isUserInteractionEnabled = true
+        let recognizer9 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny9.addGestureRecognizer(recognizer9)
     }
     
     @objc func increaseScore() {
