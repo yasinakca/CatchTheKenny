@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var score = 0
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
@@ -27,6 +29,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        scoreLabel.text = "Score: \(score)"
+        
+        kenny1.isUserInteractionEnabled = true
+        let recognizer1 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
+        kenny1.addGestureRecognizer(recognizer1)
+    }
+    
+    @objc func increaseScore() {
+        scoreLabel.text = "Score: \(score)"
+        score += 1
     }
 
 
