@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var score = 0
+    var counter = 0
+    var timer = Timer()
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -29,8 +31,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        counter = 5
         
         scoreLabel.text = "Score: \(score)"
+        timeLabel.text = "Time: \(counter)"
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
         
         kenny1.isUserInteractionEnabled = true
         let recognizer1 = UITapGestureRecognizer(target: self, action: #selector(increaseScore))
@@ -72,6 +78,16 @@ class ViewController: UIViewController {
     @objc func increaseScore() {
         scoreLabel.text = "Score: \(score)"
         score += 1
+    }
+    
+    @objc func countDown() {
+        counter -= 1
+        timeLabel.text = "Time: \(counter)"
+        
+        if counter == 0 {
+            timer.invalidate()
+            timeLabel.text = "Time's up!"
+        }
     }
 
 
