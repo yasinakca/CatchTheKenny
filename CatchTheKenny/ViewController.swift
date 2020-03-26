@@ -86,7 +86,15 @@ class ViewController: UIViewController {
         
         if counter == 0 {
             timer.invalidate()
-            timeLabel.text = "Time's up!"
+            
+            let alert = UIAlertController(title: "Time's up!", message: "Do you wanna play again?", preferredStyle: UIAlertController.Style.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+            let replayButton = UIAlertAction(title: "Replay", style: UIAlertAction.Style.default, handler: nil)
+            
+            alert.addAction(okButton)
+            alert.addAction(replayButton)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
